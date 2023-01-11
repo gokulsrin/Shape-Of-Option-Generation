@@ -14,6 +14,8 @@ There has been a small but now growing interest in studying decision making in r
 - Study_3/
 - Study_4/
 
+### Anaconda Environment 
+
 ## Experiment List and Description:
 ### Total Semantic Exploration vs Average Sentiment
 ### Total Semantic Exploration vs Generation Number
