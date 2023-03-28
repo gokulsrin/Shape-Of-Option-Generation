@@ -11,13 +11,13 @@ There has been a small but now growing interest in studying decision making in r
 <img width="246" alt="Analysis" src="https://user-images.githubusercontent.com/57068226/228378356-9486bdce-7408-4496-afdd-904e91e9f505.png">
     
 ### Analysis 
-The [Analysis](Analysis/) folder contains all of the scripts for data analysis performed on data collected from studies. Each subfolder houses the analysis scripts for each study. The Model folder stores the custom sentiment model used during sentiment analysis. 
+The [Analysis](Analysis/) folder contains all of the scripts for data analysis performed on data collected from studies. Each subfolder houses the analysis scripts for each study. For example, [this](/Analysis/Study_1/)folder contains all of the data analysis for Study 1. The [Model](Analysis/Model/) folder stores the custom sentiment model used during sentiment analysis. 
 
 ### Data 
-The Data folder contains the data collected from each study, alongside supplementary files used in data analysis. Each subfolder contains the data from each study. 
+The [Data](Data/) folder contains the data collected from each study, alongside supplementary files used in data analysis. Each subfolder contains the data from each study. For example, [this](Data/Study1/) folder contains the data for Study 1. 
 
 ### Studies 
-The Studies folder contains the code used for the studies 2 and 5. Studies 1, 3, and 4 were either 1) produced on a third-party survey platform (e.g., Qualtrics), or 2) lack accessible source code. 
+The [Studies](Studies/) folder contains the code used for the studies 2 and 5. Studies 1, 3, and 4 were either 1) produced on a third-party survey platform (e.g., Qualtrics), or 2) lack accessible source code. 
 
 ### Anaconda Environment 
 The env.yml file contains the list of dependices used for data analysis. 
