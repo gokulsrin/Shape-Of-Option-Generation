@@ -8,25 +8,7 @@ There has been a small but now growing interest in studying decision making in r
 
 ## Repository Structure:
 ### File Tree
-|-- Analysis
-|   |-- Model
-|   |-- Previous_Code
-|   |-- Study_1
-|   |-- Study_2
-|   |-- Study_3
-|   |-- Study_4
-|   |-- Study_5
-|-- Data
-|   |-- Misc
-|   |-- Study1
-|   |-- Study2
-|   |-- Study3
-|   |-- Study4
-|   |-- Study5
-|-- README.md
-|-- Studies
-    |-- Study2
-    |-- Study5
+<img width="246" alt="Analysis" src="https://user-images.githubusercontent.com/57068226/228378356-9486bdce-7408-4496-afdd-904e91e9f505.png">
     
 ### Analysis 
 The Analysis folder contains all of the scripts for data analysis performed on data collected from studies. Each subfolder houses the analysis scripts for each study. The Model folder stores the custom sentiment model used during sentiment analysis. 
