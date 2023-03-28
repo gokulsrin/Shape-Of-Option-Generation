@@ -1,0 +1,226 @@
+id,vignette_name,generation_number,generation_time,response,reflection_score
+5ea511caa6974a4e8de26ac1,Heinz,0,13254,get a second job,62
+5ea511caa6974a4e8de26ac1,Heinz,1,6792,sell things,85
+5ea511caa6974a4e8de26ac1,Heinz,2,8746,do a gofundme,68
+5ea511caa6974a4e8de26ac1,Heinz,3,18489,go to a loan shark,0
+5ea511caa6974a4e8de26ac1,Heinz,4,10357,petition his insurance company,100
+5ea511caa6974a4e8de26ac1,Heinz,5,3889,apply for grants,100
+5ea511caa6974a4e8de26ac1,Liz,0,13468,ask the front desk to leave a message,86
+5ea511caa6974a4e8de26ac1,Liz,1,4967,simply leave her friend hanging,0
+5ea511caa6974a4e8de26ac1,Liz,2,7126,go back to the office and contact her friend,19
+5ea511caa6974a4e8de26ac1,Liz,3,16334,ask for a one time use of the gym,100
+5ea511caa6974a4e8de26ac1,Liz,4,7017,ask someone else to relay a message,79
+5ea511caa6974a4e8de26ac1,Liz,5,20058,try contacting her another way,100
+5ea511caa6974a4e8de26ac1,Josh,0,10581,call a uber,89
+5ea511caa6974a4e8de26ac1,Josh,1,3078,call a lyft,93
+5ea511caa6974a4e8de26ac1,Josh,2,21937,think about his life choices since he wanted to go to a vacation to kill animals. then stay home,100
+5ea511caa6974a4e8de26ac1,Josh,3,13571,ask passersby for help,1
+5ea511caa6974a4e8de26ac1,Josh,4,3747,get on a later flight,50
+5ea511caa6974a4e8de26ac1,Josh,5,10488,take public transit,100
+5ea511caa6974a4e8de26ac1,Brian,0,13481,recount the money,100
+5ea511caa6974a4e8de26ac1,Brian,1,16779,ask his employer what to do,100
+5ea511caa6974a4e8de26ac1,Brian,2,3533,use tip money,0
+5ea511caa6974a4e8de26ac1,Brian,3,16159,quit his job,0
+5ea511caa6974a4e8de26ac1,Brian,4,30020,ask his manager about the missing money,100
+5ea511caa6974a4e8de26ac1,Brian,5,26962,find the culprit,8
+60f1ddf2ba77ba7c771c936c,Josh,0,21837,Sit in his car and cry,19
+60f1ddf2ba77ba7c771c936c,Josh,1,23086,Steal a private plane and fly it himself,1
+60f1ddf2ba77ba7c771c936c,Josh,2,24021,Begin performing on the street for money and use that money to buy another flight,32
+60f1ddf2ba77ba7c771c936c,Josh,3,27965,Try to swim to the nearest airport,0
+60f1ddf2ba77ba7c771c936c,Josh,4,11847,Push his broken down car for a while,38
+60f1ddf2ba77ba7c771c936c,Josh,5,10895,Jump off a bridge,0
+60f1ddf2ba77ba7c771c936c,Liz,1,10646,Get on the news and tell friend the story,15
+60f1ddf2ba77ba7c771c936c,Liz,2,25680,Drive to the nearest payphone,43
+60f1ddf2ba77ba7c771c936c,Liz,3,12118,Scream in the lobby and make a scene until the friend shows up,10
+60f1ddf2ba77ba7c771c936c,Liz,4,8663,Call in a threat that requires evacuation of the gym,0
+60f1ddf2ba77ba7c771c936c,Liz,5,14203,"Pose as a workout instructor ",39
+60f1ddf2ba77ba7c771c936c,Heinz,0,10832,Steal the medication from the pharmacy,36
+60f1ddf2ba77ba7c771c936c,Heinz,1,12034,Ask doctor if there are alternative treatments,79
+60f1ddf2ba77ba7c771c936c,Heinz,2,21748,"Research natural remedies ",55
+60f1ddf2ba77ba7c771c936c,Heinz,3,14597,Rob a bank,0
+60f1ddf2ba77ba7c771c936c,Heinz,4,167021,Kill his wife,0
+60f1ddf2ba77ba7c771c936c,Heinz,5,11650,Go to a natural healer and pray,42
+60f1ddf2ba77ba7c771c936c,Brian,0,8294,Quit his job,17
+60f1ddf2ba77ba7c771c936c,Brian,1,28895,Replace the money with an international currency,42
+60f1ddf2ba77ba7c771c936c,Brian,2,7076,Hire an accountant and bribe the accountant,15
+60f1ddf2ba77ba7c771c936c,Brian,3,14350,Burn the entire cash box,0
+60f1ddf2ba77ba7c771c936c,Brian,4,3312,Set the business on fire,0
+60f1ddf2ba77ba7c771c936c,Brian,5,8844,Fake a robbery,0
+5c0676a61a20110001ea1a24,Josh,0,96613,He could push the vehicle into the nearest public lot and let the business owner know his situation and ask that they allow him to leave his car there until he returns.,84
+5c0676a61a20110001ea1a24,Josh,1,51348,He could contact the airline and explain his dilemma and see if they can arrange him to take a later flight.,68
+5c0676a61a20110001ea1a24,Josh,2,48886,He could abandon the car and proceed to the airport.,16
+5c0676a61a20110001ea1a24,Josh,3,61260,"He could offer the car to a passerby and ask them to take it off his hands, promising to do the title transfer when he returns.",43
+5c0676a61a20110001ea1a24,Josh,4,91952,He could leave the car where it is but put a detailed note on the windshield with his contact info as well as someone that can be reached in his absence to handle the matter.,90
+5c0676a61a20110001ea1a24,Josh,5,46273,"He could sit in the cat and do nothing, basically giving up and feeling sorry for himself.",2
+5c0676a61a20110001ea1a24,Heinz,0,36331,She could ask the doctor for free samples.,99
+5c0676a61a20110001ea1a24,Heinz,1,40370,She could contact the manufacturer of the drug and seek patient assistance.,99
+5c0676a61a20110001ea1a24,Heinz,2,45128,"She could sell something she owns, an extra TV or car.",64
+5c0676a61a20110001ea1a24,Heinz,3,56157,He could seek early withdrawal from his IRA.,70
+5c0676a61a20110001ea1a24,Heinz,4,30677,He could ask his employer for extra shifts and overtime.,95
+5c0676a61a20110001ea1a24,Heinz,5,79618,He could ask the doctor for a less expensive or generic form of the drug.,100
+5c0676a61a20110001ea1a24,Liz,0,38963,She could go back to work and leave a note at the front desk for the friend.,73
+5c0676a61a20110001ea1a24,Liz,2,36078,She could explain to the front desk and see if they will allow her a guest pass for this one time only.,84
+5c0676a61a20110001ea1a24,Liz,3,61284,She could look for a familiar face in the parking lot and see if they will get her in on their membership pass this time.,38
+5c0676a61a20110001ea1a24,Liz,4,53379,She could ask about paying a fee to enter this one time instead of getting in on her membership pass.,99
+5c0676a61a20110001ea1a24,Liz,5,79786,She could wait for friend and offer to buy them lunch instead of playing the game.,65
+5c0676a61a20110001ea1a24,Brian,0,33036,Call his boss and ask for guidance.,100
+5c0676a61a20110001ea1a24,Brian,1,27563,He could review store security footage to see if someone stole the money.,63
+5c0676a61a20110001ea1a24,Brian,2,46982,He could leave a note about the missing money and offer to assist in whatever way necessary find what caused the shortage.,88
+5c0676a61a20110001ea1a24,Brian,3,40233,He could recount the money and daily receipts to make sure his math is correct.,100
+5c0676a61a20110001ea1a24,Brian,4,47594,He could look in the employee handbook to see if there is a standard procedure for situations like this.,70
+5c0676a61a20110001ea1a24,Brian,5,74324,He could call the day manager to see if there might be something that caused the shortage that perhaps the day manager forgot to document.,86
+5f1230c4f57b2f06e2465477,Josh,0,104331,call for an Uber,87
+5f1230c4f57b2f06e2465477,Josh,1,15686,sit and do nothing,0
+5f1230c4f57b2f06e2465477,Josh,2,17135,try to fix the car himself,63
+5f1230c4f57b2f06e2465477,Josh,3,14054,try to start the car or drive it as is,56
+5f1230c4f57b2f06e2465477,Josh,4,26291,start walking back home,0
+5f1230c4f57b2f06e2465477,Josh,5,34428,cross the road and hitch a ride back home,8
+5f1230c4f57b2f06e2465477,Heinz,0,45259,ask the doctor to reduce cost of treatment,82
+5f1230c4f57b2f06e2465477,Heinz,1,8792,sell personal items,62
+5f1230c4f57b2f06e2465477,Heinz,2,6013,sell his car,40
+5f1230c4f57b2f06e2465477,Heinz,3,12911,take out a second mortgage,60
+5f1230c4f57b2f06e2465477,Heinz,4,12458,sell his house,36
+5f1230c4f57b2f06e2465477,Heinz,5,27656,ask doctor for payment plan,77
+5f1230c4f57b2f06e2465477,Brian,0,32178,charge his credit card,59
+5f1230c4f57b2f06e2465477,Brian,1,27549,keep looking until he finds the discrepancy,97
+5f1230c4f57b2f06e2465477,Brian,2,47017,sell himself some store products but leave the products there,37
+5f1230c4f57b2f06e2465477,Brian,3,28627,ask friends/family for the money,58
+5f1230c4f57b2f06e2465477,Brian,4,23346,take out a payday loan,24
+5f1230c4f57b2f06e2465477,Brian,5,14506,"pawn his watch, jewelry",31
+5f1230c4f57b2f06e2465477,Liz,0,39307,pay for a one-day pass,64
+5f1230c4f57b2f06e2465477,Liz,1,10519,buy her friend a one-day pass,74
+5f1230c4f57b2f06e2465477,Liz,2,82558,argue with the desk clerk about the membership,43
+5f1230c4f57b2f06e2465477,Liz,3,17691,sit down and drink some water,36
+5f1230c4f57b2f06e2465477,Liz,4,22115,"beg the desk clerk for ""just one day""",53
+5f1230c4f57b2f06e2465477,Liz,5,33317,go outside and bounce the raquetball off the wall,54
+607f7f18d84d010ea2cd8664,Heinz,0,45780,He could start a gofundme for his wife.,100
+607f7f18d84d010ea2cd8664,Heinz,1,34258,He could sell his belongings.,91
+607f7f18d84d010ea2cd8664,Heinz,2,45364,He could go the illegal route and rob a bank which he should never do.,0
+607f7f18d84d010ea2cd8664,Heinz,3,36644,He could start a small business selling things.,100
+607f7f18d84d010ea2cd8664,Heinz,4,28025,He could wash peoples cars or mow their lawns.,100
+607f7f18d84d010ea2cd8664,Heinz,5,71984,He could sell his home to get the money.,0
+607f7f18d84d010ea2cd8664,Liz,1,48923,She could go to the office to get her phone.,100
+607f7f18d84d010ea2cd8664,Liz,2,131594,She could go get her phone and decide on another place to go.,100
+607f7f18d84d010ea2cd8664,Liz,3,45066,She could use her charm to get past the front desk and into the gym.,0
+607f7f18d84d010ea2cd8664,Liz,4,75666,"She could be honest with the front desk and maybe theyll let her in just this once, which is probably not going to happen.",100
+607f7f18d84d010ea2cd8664,Liz,5,31304,She could turn the fire alarm to distract others so she can sneak in.,0
+607f7f18d84d010ea2cd8664,Josh,0,19996,He could steal a car.,0
+607f7f18d84d010ea2cd8664,Josh,1,66217,He could run into traffic and ask for a ride from a stopping vehicle.,0
+607f7f18d84d010ea2cd8664,Josh,2,39521,He could just wait till someone else realizes whats going on and decides to help him.,50
+607f7f18d84d010ea2cd8664,Josh,3,60025,He could try to fix his car.,100
+607f7f18d84d010ea2cd8664,Josh,4,37810,He could push his car in neutral to the airport or back home.,82
+607f7f18d84d010ea2cd8664,Josh,5,68279,He could jump off the bridge and end his misery.,0
+607f7f18d84d010ea2cd8664,Brian,0,49055,He could over charge customers to make up the missing money.,0
+607f7f18d84d010ea2cd8664,Brian,1,24449,He could quit his job.,0
+607f7f18d84d010ea2cd8664,Brian,2,33954,He could tell the truth but raise the money.,100
+607f7f18d84d010ea2cd8664,Brian,3,52207,He could start a go fund me and hope that someone gives him money by the end of the day.,17
+607f7f18d84d010ea2cd8664,Brian,4,66934,He could  beg for money from customers.,0
+607f7f18d84d010ea2cd8664,Brian,5,34252,He could sell underage kids alcohol for extra money.,0
+6229ee11f6b5405956544966,Heinz,0,26570,Return to the doctor to see cheaper/alternative options,74
+6229ee11f6b5405956544966,Heinz,1,20745,Sell personal possessions in order to get the money,60
+6229ee11f6b5405956544966,Heinz,2,17046,Put the medication on a credit card,62
+6229ee11f6b5405956544966,Heinz,3,25191,Contact the drug manufacturer for their own charitable programs,38
+6229ee11f6b5405956544966,Heinz,4,39969,"Do nothing, and hope for the best (not a GOOD option, but an option!)",0
+6229ee11f6b5405956544966,Heinz,5,36848,Travel to another country for cheaper med/get it online from another country,41
+6229ee11f6b5405956544966,Liz,0,33729,"Ask for accomodation at the front desk, explain the situation",100
+6229ee11f6b5405956544966,Liz,1,24500,"Walk into the gym ""as if"" she was still a member (fake it)",38
+6229ee11f6b5405956544966,Liz,2,22247,Return to work and call the friend from there,66
+6229ee11f6b5405956544966,Liz,3,19032,Approach the desk about a one-time pass?,100
+6229ee11f6b5405956544966,Liz,4,29053,"When her friend arrives, offer to buy her lunch -- who needs racquetball!?",100
+6229ee11f6b5405956544966,Liz,5,14760,"Sit down and cry, look pathetic for when her friend arrives.",0
+6229ee11f6b5405956544966,Josh,0,19324,Call Uber or similar for a ride,100
+6229ee11f6b5405956544966,Josh,1,9385,Call the airport to see if they can help,30
+6229ee11f6b5405956544966,Josh,2,32972,"Ask the tow truck driver to take you to the airport FIRST, before he hitches up the car",50
+6229ee11f6b5405956544966,Josh,3,20695,Have a come-apart!,0
+6229ee11f6b5405956544966,Josh,4,31422,"Start throwing things, maybe when the cops are called they will give him a ride?",0
+6229ee11f6b5405956544966,Josh,5,25826,Sit and meditate...nothing else to do until help arrives!,100
+6229ee11f6b5405956544966,Brian,0,25172,Blame it on one of the coworkers/employees,0
+6229ee11f6b5405956544966,Brian,2,48956,Tell employees NOBODY LEAVES until the money shows up!,0
+6229ee11f6b5405956544966,Brian,3,14299,Offer to have the $$ taken out of his next check,50
+6229ee11f6b5405956544966,Brian,5,2996,"Quit. ",0
+606b4092321de2bfbfa6b719,Josh,0,21921,call the airline for other flights,60
+606b4092321de2bfbfa6b719,Josh,1,7200,call an uber,59
+606b4092321de2bfbfa6b719,Josh,2,33001,buy a scooter,22
+606b4092321de2bfbfa6b719,Josh,3,338343,postpone trip,39
+606b4092321de2bfbfa6b719,Josh,4,80839,look up a shuttle,59
+606b4092321de2bfbfa6b719,Josh,5,4395,find a bus stop,37
+606b4092321de2bfbfa6b719,Heinz,0,118697,steal the medicine,59
+606b4092321de2bfbfa6b719,Heinz,1,17071,steal money to buy meds,60
+606b4092321de2bfbfa6b719,Heinz,2,8309,contact researchers about meds,71
+606b4092321de2bfbfa6b719,Heinz,3,8963,travel to another country for treatment,31
+606b4092321de2bfbfa6b719,Heinz,4,14142,find an alternative medicine,8
+606b4092321de2bfbfa6b719,Heinz,5,16730,get wife incarcerated so she gets treatment,25
+606b4092321de2bfbfa6b719,Brian,0,36612,fake a return to account for money,30
+606b4092321de2bfbfa6b719,Brian,1,9955,pretend he got robbed,32
+606b4092321de2bfbfa6b719,Brian,2,7158,fake a medical emergency,28
+606b4092321de2bfbfa6b719,Brian,3,11762,investigate what actually happened,77
+606b4092321de2bfbfa6b719,Brian,4,19545,lie and say a coworker took it,30
+606b4092321de2bfbfa6b719,Brian,5,82855,take more money cause he is getting blamed either way,29
+606b4092321de2bfbfa6b719,Liz,0,11222,Ask gym staff to alert friend,72
+606b4092321de2bfbfa6b719,Liz,1,27153,ask gym staff if she can find her friend,36
+606b4092321de2bfbfa6b719,Liz,2,157404,go back to get her phone,59
+606b4092321de2bfbfa6b719,Liz,3,25146,use another guests membership,24
+606b4092321de2bfbfa6b719,Liz,4,12162,steal membership card,39
+606b4092321de2bfbfa6b719,Liz,5,10258,fake a medical illness,61
+5e69873c938d32244e113c95,Heinz,0,60970,Rob a bank,0
+5e69873c938d32244e113c95,Heinz,1,94230,Find a cheaper way to get treatment,35
+5e69873c938d32244e113c95,Heinz,2,90357,Switch healthcare providers,50
+5e69873c938d32244e113c95,Heinz,3,26128,Gamble,6
+5e69873c938d32244e113c95,Heinz,4,83855,sell drugs,0
+5e69873c938d32244e113c95,Heinz,5,12161,Take surveys online,70
+5e69873c938d32244e113c95,Brian,0,145954,Blame someone else,0
+5e69873c938d32244e113c95,Brian,2,42385,Quit to avoid shame,0
+5e69873c938d32244e113c95,Brian,3,74001,Overcharge future customers to get the money back,0
+5e69873c938d32244e113c95,Brian,4,40552,Steal money from coworkers and put it in,0
+5e69873c938d32244e113c95,Brian,5,98806,print counterfeit money and put it in,0
+5e69873c938d32244e113c95,Liz,1,41080,Politely ask the front desk if she can briefly enter to talk to her friend,100
+5e69873c938d32244e113c95,Liz,3,104616,Pay a staff member off to let her through,0
+5e69873c938d32244e113c95,Liz,4,15141,Complain until they let her through,58
+5e69873c938d32244e113c95,Liz,5,90218,"Dress up like staff, pretend to be the manager, and fire anyone who questions her",0
+5e69873c938d32244e113c95,Josh,0,66413,Find the next flight to Africa,87
+5e69873c938d32244e113c95,Josh,1,74576,Use a service like Lyft or Uber,100
+5e69873c938d32244e113c95,Josh,4,46287,Bike/skateboard to the airport,35
+5e69873c938d32244e113c95,Josh,5,252639,"Run onto the freeway, get hit, survive, and make the driver take him to the airport",0
+608f2aa883599160c8b87a79,Josh,1,51309,Use a bike that he might have had in his truck,84
+608f2aa883599160c8b87a79,Josh,2,32786,Take a ferry or ship instead,12
+608f2aa883599160c8b87a79,Josh,3,16875,call and reschedule the flight to a later time.,99
+608f2aa883599160c8b87a79,Josh,4,104691,go to a car repair shop and ask how long it will take to repair the vehicle so he can go to the airport,60
+608f2aa883599160c8b87a79,Josh,5,33338,try to fix his car himself and try to get it to start again.,39
+608f2aa883599160c8b87a79,Brian,0,23743,call the police about the missing money,91
+608f2aa883599160c8b87a79,Brian,1,36028,"Ask whoever stole the money to put it back and that they will leave everyone inside one by one until the person puts the money back, so nobody is accused.",95
+608f2aa883599160c8b87a79,Brian,2,34362,Try searching on the floor to see if it was dropped by the customer or himself.,29
+608f2aa883599160c8b87a79,Brian,4,31928,Lie and tell the manager they were robbed.,0
+608f2aa883599160c8b87a79,Liz,0,26697,Ask the front desk to make an acceptation in her case this one time.,87
+608f2aa883599160c8b87a79,Liz,1,19920,Ask someone else if she can borrow their membership card,62
+608f2aa883599160c8b87a79,Liz,3,32602,"Lie and say she lost her membership card in the gym and instead of searching for it she can exercise. ",8
+608f2aa883599160c8b87a79,Liz,4,24917,Ask if she can enter the gym without a membership and pay the non-membership fee.,100
+608f2aa883599160c8b87a79,Liz,5,23743,Skip going to the gym and instead exercise at a park,100
+608f2aa883599160c8b87a79,Heinz,0,29759,Get secondary health insurance to cover the bills,83
+608f2aa883599160c8b87a79,Heinz,1,14643,Rob a bank for the money,0
+608f2aa883599160c8b87a79,Heinz,2,20189,Sell non essential items they own to get the money.,82
+608f2aa883599160c8b87a79,Heinz,3,43114,Pawn their jewelry for cash.,85
+608f2aa883599160c8b87a79,Heinz,4,32192,Ask the hospital if they can give a discount.,92
+608f2aa883599160c8b87a79,Heinz,5,43756,Make youtube videos documenting her treatment and use the money from youtube ads to pay for her treatment,56
+627e6d46440b9a1d01fb1d32,Liz,0,72275,Leave a note for her friend at the front desk,86
+627e6d46440b9a1d01fb1d32,Liz,1,24701,Yell at the front desk employee,0
+627e6d46440b9a1d01fb1d32,Liz,2,9469,Start crying,26
+627e6d46440b9a1d01fb1d32,Liz,3,68125,Ask for a guest pass,98
+627e6d46440b9a1d01fb1d32,Liz,4,114933,Ask for a manager,20
+627e6d46440b9a1d01fb1d32,Josh,0,33286,Carjack someone,0
+627e6d46440b9a1d01fb1d32,Josh,1,73254,call the airport and book a later flight,88
+627e6d46440b9a1d01fb1d32,Josh,2,20782,sit on the side of the road and cry,16
+627e6d46440b9a1d01fb1d32,Josh,3,55733,get a flight to a different destination,85
+627e6d46440b9a1d01fb1d32,Josh,4,195654,try to fix his car himself,87
+627e6d46440b9a1d01fb1d32,Josh,5,581157,take a nap,49
+627e6d46440b9a1d01fb1d32,Brian,0,27558,stage a robbery,0
+627e6d46440b9a1d01fb1d32,Brian,1,75118,blame his coworkers,50
+627e6d46440b9a1d01fb1d32,Brian,2,14998,quit his job,0
+627e6d46440b9a1d01fb1d32,Brian,3,133717,say he took the money to feed his family,0
+627e6d46440b9a1d01fb1d32,Brian,4,319638,threaten his coworkers to give back the money,0
+627e6d46440b9a1d01fb1d32,Brian,5,31710,help look for the missing money,100
+627e6d46440b9a1d01fb1d32,Heinz,0,7582,Steal the money,0
+627e6d46440b9a1d01fb1d32,Heinz,1,24606,get into a drug trial,100
+627e6d46440b9a1d01fb1d32,Heinz,2,32094,move to a different country where the treatment is cheaper or free,79
+627e6d46440b9a1d01fb1d32,Heinz,3,85782,divorce his wife so she qualifies for government assistance,33
+627e6d46440b9a1d01fb1d32,Heinz,4,18102,kill his wife,0
+627e6d46440b9a1d01fb1d32,Heinz,5,28070,rob the pharmacy/hospital where the drug is,0

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Decision Fatigue</title>
+        <script src="./jspsych/jspsych.js"></script>
+        <script src="./jspsych/plugin-html-keyboard-response.js"></script>
+        <script src="./jspsych/plugin-video-keyboard-response.js"></script>
+        <script src="./jspsych/plugin-video-button-response.js"></script>
+        <script src="./jspsych/plugin-image-button-response.js"></script>
+        <script src="./jspsych/plugin-image-keyboard-response.js"></script>
+        <script src="./jspsych/plugin-survey-html-form.js"></script>
+        <script src="./jspsych/plugin-html-button-response.js"></script>
+        <script src="./jspsych/plugin-html-keyboard-response.js"></script>
+        <script src="./jspsych/plugin-survey-multi-choice.js"></script>
+        <script src="./jspsych/plugin-survey-multi-select.js"></script>
+        <script src="./jspsych/plugin-preload.js"></script>
+        <script src="./jspsych/plugin-survey-text.js"></script>
+        <script src="./jspsych/plugin-html-slider-response.js"></script>
+        <script src="./text.js"></script>
+        <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+    <script>
+       /* This function here will allow us to send the data from the completed survey to the server */
+        function save_data(data) {
+            url = location + "data"
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                data
+            }));
+        }
+        /* This will allow us to use jspsych moving forward, and it also configures certain display settings, 
+        as well as what will happen when the survey is completed...
+        */
+        const jsPsych = initJsPsych({
+            show_progress_bar: true,
+            // override_safe_mode:true, 
+            on_finish: function(){
+                document.write('<p style="text-align:center"> You have completed the survey. Thank you for your cooperation. Your survey code is: "Nlb!2GGJ0j7%".</p>');
+                save_data([responses, answers])
+            }
+        }); 
+        //timeline 
+        var timeline = [];
+        /* Consent form for the study*/
+        var consent = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: consent_form,
+            choices: ['Consent'],
+            //this specifies the way in which the data will be configured inside jspsych data variable...
+            data:{
+                internal_type: "consent"
+            },
+        };
+        timeline.push(consent);
+
+        // this will store participant answers 
+        var answers = {};
+        /* Collection of participant info*/
+        var responses = {} // responses will be formatted as follows [id] -> prolific_id, [age] -> age, same for race and ethnicity 
+
+        var participant_info = {
+            type: jsPsychSurveyText,
+            preamble: 'Please provide us with some demographic information.',
+            questions: [
+                {prompt: "How old are you?", placeholder: 'ex: 34',required: true}, 
+                {prompt: "Which is your dominant hand (e.g.,Right, Left, Ambidextrous)?", required:true}, 
+                {prompt: "What is your native language?", required: true}, 
+                {prompt: "What is your nationality?", required: true}, 
+                {prompt: "In which country do you live?", required: true},
+                {prompt: "What is your gender (e.g., Male, Female, Other)?", required:true}, 
+                {prompt: '<p style="width:500px;">What is your education level (e.g., Grade/elementary school, High school, Some college or university, College or university degree, Graduate degree, Masters, PhD)<p>?', required: true},
+                {prompt: "Prolific Worker ID", required: true}
+            ],
+            data:{
+                internal_type: "participant_info"
+            },
+            on_finish: function(data){
+                responses["age"] = data.response['Q0'];
+                responses["handedness"] = data.response["Q1"];
+                responses["language"] = data.response["Q2"];
+                responses["nationality"] = data.response["Q3"];
+                responses["residence"] = data.response["Q4"];
+                responses["gender"] = data.response["Q5"];
+                responses["education"] = data.response["Q6"];
+                responses["id"] = data.response["Q7"];
+            },
+        };
+        timeline.push(participant_info);
+        
+        /* General study instructions */
+        var general_instructions = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: instructions,
+            choices: ['Continue'],
+        }
+        timeline.push(general_instructions);
+
+        function shuffle(array) {
+            let currentIndex = array.length,  randomIndex;
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+                // Pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        //shuffle the vigns
+        var vignette_order = []
+        for (key in vignettes){
+            vignette_order.push(key);
+        }
+        // for testing 
+        // vignette_order = [vignette_order[0], vignette_order[1], vignette_order[2], vignette_order[3]];
+        // vignette_order = [vignette_order[0]];
+        vignette_order = shuffle(vignette_order);
+        var recent_vign = 0; 
+        var recent_order = 0
+        function push_vignettes(){
+            for (key of vignette_order){
+                console.log(key)
+                //creating and pushing the vignette trial  
+                var vign_trial = {
+                    type: jsPsychHtmlButtonResponse, 
+                    stimulus: vignettes[key], 
+                    choices: ["Continue"],
+                }
+                timeline.push(vign_trial);
+                // creating pushing the subsequent response screen where we ask participants to come up with a distinct generation 
+                for (var i = 0; i < 6; i++){
+                    //generation here
+                    var generation = {
+                        type: jsPsychSurveyText, 
+                        preamble: answers_text[key], 
+                        questions: [{prompt: "Please tell us something <b> else </b>"+key+" could do in this situation (<i>answer: " +(i+1)+"/6</i>).", required: true}], 
+                        data: {
+                            order: i,
+                            type: key
+                        },
+                        on_finish: function(data){
+                            var key = data.type;
+                            if (answers[key] == null){
+                                answers[key] = {}
+                            }
+                            answers[key][data.order] = [data.response.Q0, data.rt]
+                            recent_vign = data.type;
+                            console.log(answers);
+                        }
+                    }
+                    timeline.push(generation);
+                }
+                //create the reflection trial 
+                for (let i = 0; i < 6; i++){
+                    var reflection = {
+                        type: jsPsychHtmlSliderResponse,
+                        stimulus: function(){
+                            console.log(recent_vign);
+                            console.log(answers[recent_vign]);
+                            console.log(answers[recent_vign][0][0]);
+                            return  answers[recent_vign][i][0];
+                        },
+                        prompt: "<p>Here is one of the answers you gave. <br> We are interested in how good you think it would be to do. <br> Please provide your answer on the scale.</p>",
+                        labels: ["Not good", "Very good"],
+                        require_movement: true, 
+                        on_finish: function(data){
+                            answers[recent_vign][i].push(data.response);
+                            console.log(answers);
+                        }
+                    }
+                    timeline.push(reflection);
+                }
+            }
+        }
+        push_vignettes();
+
+        /* Closing remarks*/
+        var debrief = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: ' <p style="font-size:16px; color:black;margin:20px; font-weight:bold"> Study Debriefing </p>\
+            <p style="font-size:16px; color:black; margin:20px;">Judgments of force are pervasive in legal, philosophical, and everyday thinking. By analyzing responses from the survey you just completed, we are examining the complex ways in which judgments of force may interface with moral attributions - equally prevalent in legal, philosophical, and everyday thinking. </p> \
+            <p style="font-size:16px; color:black; margin:20px;font-weight: bold"> How is this being tested? </p>\
+            <p style="font-size:16px; color:black; margin:20px"> You were presented with information about whether a person was forced to do an unspecified action and then asked to predict what that person did from a set of potential actions. By varying the initial condition (whether or not said person was forced), we can study the effect judgments of force may have on action selection. </p>\
+            <p style="font-size:16px; color:black; margin:20px;font-weight: bold"> Main questions and hypotheses: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> The fundamental goal of this research is to determine whether judgments of force constrain moral appraisals. In this specific case, the question was whether or not moral judgments would influence candidate action selection. We hypothesized that people would, on average, select morally worse actions in cases where they were told that the captain was forced than in those cases where the captain was not. </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> Why is this important to study? </p>\
+            <p style="font-size:16px; color:black; margin:20px"> Understanding the relationship between judgments of force and moral appraisals has massive consequences for several domains, including the legal realm. Suppose a jury is deciding whether a defendant is guilty of a crime - the details of which are inaccessible to them (an all too common occurrence) - but they know whether or not the defendant was forced to commit the crime. Here, if judgments of force incorrectly influence moral appraisals (of the defendant’s actions), the consequences would be disastrous. </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> How to learn more: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> If you are interested in learning more, you may want to consult the following article:\
+            Liane Young and Jonathan Phillips, "The Paradox of Moral Focus." </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> How to contact the researcher: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> If you have questions or concerns about your participation or payment or want to request a summary of research findings, please contact the Primary Investigator: Dr. Jonathan Phillips, </p> <a href=mailto:Jonathan.S.Phillips@dartmouth.edu>Jonathan.S.Phillips@dartmouth.edu.</a>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> Whom to contact about your rights in this research: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> If you have questions, concerns, complaints, or suggestions about the present research, you may call the Office of the Committee for the Protection of Human Subjects at Dartmouth College (603) 646-6482 during normal business hours. </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> Please navigate to the next screen to collect your completion code! </p>'
+            , 
+            choices: ['Continue'],
+        }
+        timeline.push(debrief)
+
+        jsPsych.run(timeline);
+    </script>
+    </body>
+</html>
