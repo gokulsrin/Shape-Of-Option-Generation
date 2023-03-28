@@ -11,7 +11,7 @@ There has been a small but now growing interest in studying decision making in r
 <img width="246" alt="Analysis" src="https://user-images.githubusercontent.com/57068226/228378356-9486bdce-7408-4496-afdd-904e91e9f505.png">
     
 ### Analysis 
-The Analysis folder contains all of the scripts for data analysis performed on data collected from studies. Each subfolder houses the analysis scripts for each study. The Model folder stores the custom sentiment model used during sentiment analysis. 
+The [Analysis](Analysis/) folder contains all of the scripts for data analysis performed on data collected from studies. Each subfolder houses the analysis scripts for each study. The Model folder stores the custom sentiment model used during sentiment analysis. 
 
 ### Data 
 The Data folder contains the data collected from each study, alongside supplementary files used in data analysis. Each subfolder contains the data from each study. 
