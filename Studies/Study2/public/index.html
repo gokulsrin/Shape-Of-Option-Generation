@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Moral Force Survey</title>
+        <script src="./jspsych/jspsych.js"></script>
+        <script src="./jspsych/plugin-html-keyboard-response.js"></script>
+        <script src="./jspsych/plugin-survey-html-form.js"></script>
+        <script src="./jspsych/plugin-html-button-response.js"></script>
+        <script src="./jspsych/plugin-survey-multi-choice.js"></script>
+        <script src="./jspsych/plugin-survey-multi-select.js"></script>
+        <script src="jspsych/plugin-survey-text.js"></script>
+        <script src="jspsych/plugin-html-slider-response.js"></script>
+        <script src="vignettes.js"></script>
+        <script src="bdi_options.js"></script>
+        <script src="openess_subscale.js"></script>
+        <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+    <script>
+        var trials = [];
+
+        /* vign: {order: [responses, time, goodness]}*/
+        var responses = {};
+          /* This function here will allow us to send the data from the completed survey to the server */
+        function save_data() {
+            console.log(responses);
+            url = location + "data"
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                responses
+            }));
+        }
+
+        var jsPsych = initJsPsych({
+            show_progress_bar: true,
+            on_finish: function(){
+                save_data();
+                document.write('<p style="text-align:center"> You have completed the survey. Thank you for your cooperation. Your survey code is: "374ydbwdw37rgd".</p>');
+            }
+        })
+        /* Opening Instructions... */
+
+        /* Consent form for the study*/
+        var consent = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: "<DIV align='left'><div>&nbsp;</div><div>Please consider this information carefully before deciding whether to participate in this research.</div><div>&nbsp;\<div>The purpose of this research is to examine which factors influence social judgment and decision-</div><div>making.You will be asked to make judgement about individuals and actions in social scenarios.</div><div>We are simply interested in your judgement. The study will take less than 1 hour to complete,</div><div>and you will receive less than $20 on Prolific. Your compensation and time</div><div>commitment are specified in the study description. There are no anticipated risks associated with</div><div>participating in this study. The effects of participating should be comparable to those you would</div><div>ordinarily experience from viewing a computer monitor and using a mouse or keyboard for a</div><div>similar amount of time. At the end of the study, we will provide an explanation of the questions</div><div>that motivate this line of research and will describe the potential implications.</div><div>&nbsp;</div><div>Your participation in this study is completely voluntary and you may refuse to participate or you</div><div>may choose to withdraw at any time without penalty or loss of benefits to you which are</div><div>otherwise entitled. Your participation in this study will remain confidential. No personally</div><div>identifiable information will be associated with your data. Also, all analyses of the data will be</div><div>averaged across all the participants, so your individual responses will never be specifically</div><div>analyzed.</div><div>&nbsp;</div><div>If you have questions or concerns about your participation or payment, or want to request a</div><div>summary of research findings, please contact Dr. Jonathan Phillips at</div><div><a href=mailto:Jonathan.S.Phillips@dartmouth.edu>Jonathan.S.Phillips@dartmouth.edu</a>.</div><div>&nbsp;</div><div>Please save a copy of this form for your records.</div><div>&nbsp;</div></DIV><div>Agreement:</div><DIV align='left'><div>The nature and purpose of this research have been sufficiently explained and I agree to</div><div>participate in this study. I understand that I am free to withdraw at any time without incurring</div><div>any penalty. Please consent by clicking the button below to continue. Otherwise, please exit the</div><div>study at any time.</div><div>&nbsp;</div></DIV>",
+            choices: ['Submit'],
+            //this specifies the way in which the data will be configured inside jspsych data variable...
+            data:{
+                internal_type: "consent"
+            },
+        };
+
+        /* Collection of participant info*/
+        var participant_info = {
+            type: jsPsychSurveyText,
+            preamble: 'Please provide us with some demographic information.',
+            questions: [
+                {prompt: "How old are you?", placeholder: 'ex: 34',required: true}, 
+                {prompt: "Which is your dominant hand (e.g.,Right, Left, Ambidextrous)?", required:true}, 
+                {prompt: "What is your native language?", required: true}, 
+                {prompt: "What is your nationality?", required: true}, 
+                {prompt: "In which country do you live?", required: true},
+                {prompt: "What is your gender (e.g., Male, Female, Other)?", required:true}, 
+                {prompt: '<p style="width:500px;">What is your education level (e.g., Grade/elementary school, High school, Some college or university, College or university degree, Graduate degree, Masters, PhD)?', required: true},
+                {prompt: "Prolific Worker ID", required: true}
+            ],
+            data:{
+                internal_type: "participant_info",
+            },
+            on_finish: function(data){
+                responses["age"] = data.response['Q0'];
+                responses["handedness"] = data.response["Q1"];
+                responses["language"] = data.response["Q2"];
+                responses["nationality"] = data.response["Q3"];
+                responses["residence"] = data.response["Q4"];
+                responses["gender"] = data.response["Q5"];
+                responses["education"] = data.response["Q6"];
+                responses["id"] = data.response["Q7"];
+            }, 
+        };
+        var instructions = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: '<div style="font-size:18px; color:black; margin:50px;"> Shortly, you will be presented with several vignettes and asked to generate possible actions you would take if you were in the situations described. After developing these possibilities, you will be asked to rate them according to how good <b>you</b> think they were. You will read ten vignettes in total, generating six possibilities per vignette.</div>', 
+            choices: ['Continue'],
+            //this specifies the way in which the data will be configured inside jspsych data variable...
+            data:{
+                internal_type: "instructions "
+            },
+        }
+
+        /* Randomize vignette order*/
+        var keys = []
+        for (var key in vignettes){
+            keys.push(key)
+        }
+        vignette_order = jsPsych.randomization.shuffle(keys);
+
+        /* Provided a vignette name, here we will add to the timeline the vignette presentation and then all of the possibility generation tasks*/ 
+        
+        var limit = 6;
+
+        function vignette_creation(name){
+
+            // first add the text portion of the vignette
+            var text = vignettes[name];
+            console.log(text)
+            var intravign_timeline = [];
+            var vignette = {
+                type: jsPsychHtmlButtonResponse,
+                stimulus: text,
+                choices: ['Continue'],
+                //this specifies the way in which the data will be configured inside jspsych data variable...
+                data:{
+                    internal_type: name+"-prompt",
+                    vignette_type: name, 
+                },
+            };
+            intravign_timeline.push(vignette);
+            // trials.push(vignette);
+            //then add all of the blank fields... 
+           
+            for (var i = 0; i < limit; i++){
+                var possibility = {
+                    type: jsPsychSurveyText,
+                    questions: [
+                        {prompt: "Please enter something you would do in this situation", required: true}, 
+                    ],
+                    data:{
+                        internal_type: name+"_generation",
+                        vignette_name: name, 
+                        order: i, 
+                    },
+                    on_finish: function(data) {
+
+                        if (responses[data.vignette_name] == null){
+                            responses[data.vignette_name] = {};
+                        }
+                        console.log(responses[data.vignette_name]);
+                        responses[data.vignette_name][String(data.order)] = [data.response.Q0, data.rt];
+                        console.log(responses);
+            
+                    }   
+                }   
+                intravign_timeline.push(possibility);
+            }
+
+            var vignette_trial = {
+                timeline:intravign_timeline,
+            }
+            trials.push(vignette_trial);
+
+            // add the brief
+            var brief = {
+                type: jsPsychHtmlButtonResponse,
+                stimulus: "In the next section, we want to know how you think about the answers you just gave",
+                choices: ['Continue'],
+                //we add all of the previous response data to the brief's data variable...
+                // data: function(){
+                //     return {responses: create_reflection()}
+                // }
+                
+            };
+            trials.push(brief);
+        
+            // add the corresponding reflections
+            for (let j = 0; j < limit; j++){
+                var reflection = {
+                    type: jsPsychHtmlSliderResponse,
+                    stimulus: function(){
+                        return  responses[name][j][0];
+                    },
+                    prompt: "<p>Here is one of the answers you gave. <br> We are interested in how good you think it would be to do. <br> Please provide your answer on the scale.</p>",
+                    labels: ["Not good", "Very good"],
+                    require_movement: true, 
+                    on_finish: function(data){
+                        responses[name][j].push(data.response);
+                        console.log(responses);
+                    }
+                }
+                trials.push(reflection)
+            }            
+        }
+        function vignette_pusher(){
+            for (var vign of vignette_order){
+                console.log(vign);
+                vignette_creation(vign);
+            }
+        }
+        
+        /* at this point need to ask the beck questions*/
+        var bai_options = ["Not at all", "Mildly – but it didn’t bother me much", "Moderately – it wasn’t pleasant at times", "Severely – it bothered me a lot"];
+        var bai_score = {"Not at all": 0, "Mildly – but it didn’t bother me much": 1, "Moderately – it wasn’t pleasant at times": 2, "Severely – it bothered me a lot": 3}
+        var bai = {
+            type: jsPsychSurveyMultiSelect,
+            preamble: '<p style="width:100%;text-align:center;"<br><br>Below is a list of common symptoms of anxiety. Please carefully read each item in the list. Indicate how much you have been bothered by that symptom during the past month, including today, by selecting the option that most describes how you feel about each symptom. <b>Be sure you do not choose more than one statement from any group.</b>',
+            data: {
+                internal_type: "bai"
+            },
+            questions: [{
+                prompt: "<b>Numbness or tingling",
+                name: 'bai_1',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Feeling hot",
+                name: 'bai_2',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Wobbliness in legs",
+                name: 'bai_3',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Unable to relax",
+                name: 'bai_4',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Fear of worst happening",
+                name: 'bai_5',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Dizzy or lightheaded",
+                name: 'bai_6',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Heart pounding/racing",
+                name: 'bai_7',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Unsteady",
+                name: 'bai_8',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Terrified or afraid",
+                name: 'bai_9',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Nervous",
+                name: 'bai_10',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Feeling of choking",
+                name: 'bai_11',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Hands trembling",
+                name: 'bai_12',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Shaky/unsteady",
+                name: 'bai_13',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Fear of losing control",
+                name: 'bai_14',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Difficulty in breathing",
+                name: 'bai_15',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Fear of dying",
+                name: 'bai_16',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Scared",
+                name: 'bai_17',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Indigestion",
+                name: 'bai_18',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Faint/lightheaded",
+                name: 'bai_19',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Face flushed",
+                name: 'bai_20',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Hot/cold sweats",
+                name: 'bai_21',
+                options: bai_options,
+                required: true,
+                horizontal: false,
+            }, ],
+            //here we are assigning to the participants their bai score
+            on_finish: function(data){
+                var score = 0; 
+                console.log(data)
+                for (r in data.response){
+                    score += bai_score[data.response[r][0]];
+                }
+                responses['bai'] = score;
+            }
+        }
+
+        // // as of rn we have removed question 9 (suicidal thoughts or wishes), so if we ever add it back change below to say '...Item 16 (Cha...or Item 9 (Cha...
+        // // additionally i will create variables corresponding to this question but comment them out for the time being for orginizational purposes
+        bdi_scores = {'I do not feel sad.': '0', 'I feel sad much of the time.': '1', 'I am sad all the time.': '2', "I am so sad or unhappy I can't stand it.": '3', 'I am not discouraged about my future.': '0', 'I feel more discouraged about my future than I used to be.': '1', 'I do not expect things to work out for me.': '2', 'I feel my future is hopeless and will only get worse.': '3', 'I do not feel like a failure.': '0', 'I feel more discouraged about my future than I used to': '1', 'As I look back I see a lot of failures.': '2', 'I feel I am a total failure as a person': '3', 'I get as much pleasure as I ever did from the things I enjoy.': '0', "I don't enjoy things as much as I used to.": '1', 'I get very little pleasure from the things I used to enjoy.': '2', "I can't get any pleasure from the things I used to enjoy.": '3', "I don't feel particularly guilty.": '0', 'I feel guilty over many things I have done or should have done.': '1', 'I feel quite guilty most of the time.': '2', 'I feel guilty all of the time.': '3', "I don't feel I am being punished.": '0', 'I feel I may be punished.': '1', 'I expect to be punished.': '2', 'I feel I am being punished.': '3', 'I feel the same about myself as ever.': '0', 'I have lost confidence in myself.': '1', 'I am disappointed in myself.': '2', 'I dislike myself.': '3', "I don't criticize or blame myself more than usual.": '0', 'I am more critical of myself than I used to be.': '1', 'I criticize myself for all of my faults.': '2', 'I blame myself for everything bad that happens.': '3', "I don't cry anymore than I used to.": '0', 'I cry more than I used to.': '1', 'I cry over every little thing.': '2', "I feel like crying but I can't.": '3', 'I am no more restless or wound up than usual.': '0', 'I feel more restless or wound up than usual.': '1', "I am so restless or agitated that it's hard to stay still.": '2', 'I am so restless or agitated that I have to keep moving or doing something.': '3', 'I have not lost interest in other people or activities.': '0', 'I am less interested in other people or things than before.': '1', 'I have lost most of my interest in other people or things.': '2', "It's hard to get interested in anything.": '3', 'I make decisions about as well as ever.': '0', 'I find it more difficult to make decisions than usual.': '1', 'have much greater difficulty in making decisions than I used to.': '2', 'I have trouble making any decisions.': '3', 'I do not feel I am worthless.': '0', "I don't consider myself as worthwhile and useful as I used to.": '1', 'I feel more worthless as compared to other people.': '2', 'I feel utterly worthless.': '3', 'I have as much energy as ever.': '0', 'I have less energy than I used to have.': '1', "I don't have enough energy to do very much.": '2', "I don't have enough energy to do anything.": '3', 'I have not experienced any change in my sleeping pattern.': '0', 'I sleep somewhat more than usual.': '1', 'I sleep somewhat less than usual.': '1', 'I sleep a lot more than usual.': '2', 'I sleep a lot less than usual.': '2', 'I sleep most of the day.': '3', "I wake up 1-2 hours early and can't get back to sleep.": '3', 'I am no more irritable than usual.': '0', 'I am more irritable than usual.': '1', 'I am much more irritable than usual.': '2', 'I am irritable all the time.': '3', 'I have not experienced any change in my appetite.': '0', 'My appetite is somewhat less than usual.': '1', 'My appetite is somewhat greater than usual.': '1', 'My appetite is much less than before.': '2', 'My appetite is much greater than usual.': '2', 'I have no appetite at all.': '3', 'I crave food all the time.': '3', 'I can concentrate as well as ever.': '0', "I can't concentrate as well as usual.": '1', "It's hard to keep my mind on anything for very long.": '2', "I find I can't concentrate on anything.": '3', 'I am no more tired or fatigued than usual.': '0', 'I get more tired or fatigued more easily than usual.': '1', 'I am too tired or fatigued to do a lot of the things I used to do.': '2', 'I am too tired or fatigued to do most of the things I used to do.': '3', 'I have not noticed any recent change in my interest in sex.': '0', 'I am less interested in sex than I used to be.': '1', 'I am much less interested in sex now.': '2', 'I have lost interest in sex completely.': '3'}
+
+        var bdi = {
+            type: jsPsychSurveyMultiSelect,
+            data: {
+                internal_type:"bdi"
+            },
+            preamble: "<br><br> This questionnaire consists of 20 groups of statements. Please read each group of statements carefully, and then pick out the <b> one statement </b> "
+                + "in each group that best describes the way you have been feeling during the <b> past two weeks, including today </b>. Select the box corresponding to the "
+                + "statement you have picked. If several satements in the group seem to apply equally well, select the highest number from that group. <b>Be sure you do not choose "
+                + "more than one statement from any group</b>, including Item 15 (Changes in sleeping pattern) or Item 17 (Changes in Appetite).",
+            questions: [{
+                prompt: "<b>Sadness",
+                name: 'bdi_1',
+                options: bdi_options.Sadness,
+                required: true,
+                horizontal: false, 
+            }, {
+                prompt: "<b>Pessimism",
+                name: 'bdi_2',
+                options: bdi_options.Pessimism,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Past Failure",
+                name: 'bdi_3',
+                options: bdi_options.PastFailure,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Loss of Pleasure",
+                name: 'bdi_4',
+                options: bdi_options.LossofPleasure,
+                required: true,
+                horizontal: false,
+            },{
+                prompt: "<b>Guilty Feelings",
+                name: 'bdi_5',
+                options: bdi_options.GuiltyFeelings,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Punishment Feelings",
+                name: 'bdi_6',
+                options: bdi_options.PunishmentFeelings,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Self-Dislike",
+                name: 'bdi_7',
+                options: bdi_options.SelfDislike,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Self-Criticalness",
+                name: 'bdi_8',
+                options: bdi_options.SelfCriticalness,
+                required: true,
+                horizontal: false,
+            },
+                {
+                prompt: "<b>Crying",
+                name: 'bdi_10',
+                options: bdi_options.Crying,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Agitation",
+                name: 'bdi_11',
+                options: bdi_options.Agitation,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Loss of Interest",
+                name: 'bdi_12',
+                options: bdi_options.LossofInterest,
+                required: true,
+                horizontal: false,
+            },{
+                prompt: "<b>Indecisiveness",
+                name: 'bdi_13',
+                options: bdi_options.Indecisiveness,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Worthlessness",
+                name: 'bdi_14',
+                options: bdi_options.Worthlessness,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Loss of Energy",
+                name: 'bdi_15',
+                options: bdi_options.LossofEnergy,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Changes in Sleeping Pattern",
+                name: 'bdi_16',
+                options: bdi_options.ChangesinSleepingPattern,
+                required: true,
+                horizontal: false,
+            },{
+                prompt: "<b>Irritability",
+                name: 'bdi_17',
+                options: bdi_options.Irratability,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Changes in Appetite",
+                name: 'bdi_18',
+                options: bdi_options.ChangesinAppetite,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Concentration Difficulty",
+                name: 'bdi_19',
+                options: bdi_options.ConcentrationDifficulty,
+                required: true,
+                horizontal: false,
+            }, {
+                prompt: "<b>Tiredness or Fatigue",
+                name: 'bdi_20',
+                options: bdi_options.TirednessorFatigue,
+                required: true,
+                horizontal: false,
+            },{
+                prompt: "<b>Loss of Interest in Sex",
+                name: 'bdi_21',
+                options: bdi_options.LossofInterestinSex,
+                required: true,
+                horizontal: false,
+            }, ], 
+            on_finish: function(data){
+                var score = 0;
+                for (var r in data.response){
+                    score += parseInt(bdi_scores[data.response[r][0].trim()]);
+                }
+                responses['bdi'] = score;   
+            },
+        }
+     
+        // jsPsych.data.getLastTimelineData().trials[22].responses;
+
+        /* This section is for current affective state*/
+        var panas_options = ["Very slightly or not at all", "A little", "Moderately", "Quite a bit", "Extremely"];
+        var panas_score = {"Very slightly or not at all": 1, "A little": 2, "Moderately": 3, "Quite a bit": 4, "Extremely":5};
+        // 1, 3, 5, 9, 10, 12, 14, 16, 17, and 19
+        var panas_texts = ["<b>Interested", "<b>Excited", "<b>Strong", "<b>Enthusiastic", "<b>Proud", "<b>Alert", "<b>Inspired", "<b>Determined", "<b>Attentive", "<b>Active"];
+        //with both positive and negative 
+        // var panas_texts = ["Interested", "Distressed", "Excited", "Upset", "Strong", "Guilty", "Scared", "Hostile", "Enthusiastic", "Proud", "Irritable", "Alert", "Ashamed", "Inspired", "Nervous", "Determined", "Attentive", "Jittery", "Active", "Afraid"];
+        var panas = {
+            type: jsPsychSurveyMultiSelect,
+            preamble: "<br><br>" 
+                + " <p> This questionnaire consists of 20 of statements. Please read each statement carefully, and then pick out the <b> one option </b> \
+                in each group that best describes the way you feel about that statement right now. Select the box corresponding to the \
+                statement you have picked. If several statements in the group seem to apply equally well, select the highest number from that group. \
+                <b>Be sure you do not choose more than one statement from any group.</b>\
+                <br><br>For example, when reading the statement 'Interested', I ask myself: 'to what extent I am feeling interested right now?' \
+                Then, I select the option which best describes my feelings. </p>",
+            data: {
+                internal_type: "panas"
+            },
+            questions: [{
+                prompt: panas_texts[0],
+                name: 'panas_1',
+                options: panas_options,
+                required: true,
+                horizontal: false,
+            }, 
+            {
+                prompt: panas_texts[1],
+                name: 'panas_2',
+                options: panas_options,
+                required: true,
+                horizontal: false, 
+            },
+            {
+                prompt: panas_texts[2],
+                name: 'panas_3',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[3],
+                name: 'panas_4',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[4],
+                name: 'panas_5',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[5],
+                name: 'panas_6',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[6],
+                name: 'panas_7',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[7],
+                name: 'panas_8',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[8],
+                name: 'panas_9',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            {
+                prompt: panas_texts[9],
+                name: 'panas_10',
+                options: panas_options,
+                required: true,
+                horizontal: false
+            }, 
+            // {
+            //     prompt: panas_texts[10],
+            //     name: 'panas_11',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // }, 
+            // {
+            //     prompt: panas_texts[11],
+            //     name: 'panas_12',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // }, 
+            // {
+            //     prompt: panas_texts[12],
+            //     name: 'panas_13',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // }, 
+            // {
+            //     prompt: panas_texts[13],
+            //     name: 'panas_14',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // }, 
+            // {
+            //     prompt: panas_texts[14],
+            //     name: 'panas_15',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // },
+            // {
+            //     prompt: panas_texts[15],
+            //     name: 'panas_16',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // },
+            // {
+            //     prompt: panas_texts[16],
+            //     name: 'panas_17',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // },
+            // {
+            //     prompt: panas_texts[17],
+            //     name: 'panas_18',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // },
+            // {
+            //     prompt: panas_texts[18],
+            //     name: 'panas_19',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // },
+            // {
+            //     prompt: panas_texts[19],
+            //     name: 'panas_20',
+            //     options: panas_options,
+            //     required: true,
+            //     horizontal: true
+            // },
+        ],
+            //here we are assigning to the participants their bai score
+            on_finish: function(data){
+                console.log(data);
+                var pos_score = 0; 
+                // var neg_score = 0; 
+                console.log(data)
+                for (r in data.response){
+                    pos_score += panas_score[data.response[r][0]];
+                }
+                // for (r in data.response){
+                //     if (parseInt(r.split("_")[1])%2 == 0){
+                //         pos_score += panas_score[data.response[r][0]];
+                //     } 
+                //     else{
+                //         neg_score += panas_score[data.response[r][0]];
+                //     }
+                // }
+                responses['panas_pos'] = pos_score;
+                // responses['panas_neg'] = neg_score;
+                console.log(responses);
+            }
+        }
+
+        /* Openess subscale */
+
+        /* scoring; COMPUTE BFI_Ope = (mean(BFI_5,BFI_10,BFI_15,BFI_20,BFI_25,BFI_30,BFI_40,BFI_44)*8) + (8-(mean (BFI_35,BFI_41)*2)) .*/
+        // 7 and 9 are reverse scored aka (6 - score)
+        var openness_options = ["Disagree a lot", "Disagree a little", "Neutral", "Agree a little", "Agree a lot"];
+        var openness_scores = {"Disagree a lot":1, "Disagree a little":2, "Neutral":3, "Agree a little":4, "Agree a lot":5};
+        
+        var openness_trial = {
+            type: jsPsychSurveyMultiSelect,
+            preamble: '<br><br> <p style="width:100; text-align:center;" > Below is a questionnaire that consists of 10 questions aimed at assessing your sense of openness.'
+                + 'You will read various short statements. Please select the <b> one </b> option underneath these statements that best reflects how you feel. </p> ',
+            data: {
+                internal_type: "bai"
+            },
+            questions: [
+                {
+                    prompt: openness_prompts[0],
+                    name: 'openness_1',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                }, 
+                {
+                    prompt: openness_prompts[1],
+                    name: 'openness_2',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[2],
+                    name: 'openness_3',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[3],
+                    name: 'openness_4',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[4],
+                    name: 'openness_5',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[5],
+                    name: 'openness_6',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[6],
+                    name: 'openness_7',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[7],
+                    name: 'openness_8',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[8],
+                    name: 'openness_9',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+                {
+                    prompt: openness_prompts[9],
+                    name: 'openness_10',
+                    options: openness_options,
+                    required: true,
+                    horizontal: false, 
+                },
+            ],
+            on_finish: function(data){
+                var score = 0; 
+                console.log(data)
+                for (r in data.response){
+                    if (r == 'openness_6' || r == 'openness_8'){
+                        //reverse scored
+                        score += (6 - openness_scores[data.response[r][0]]);
+                    }
+                    else{
+                        score += openness_scores[data.response[r][0]];
+                    }
+                }
+                responses['openness'] = score;
+                console.log(responses['openness']);
+            },
+        }
+
+        /* Closing remarks*/
+        var debrief = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: ' <p style="font-size:16px; color:black;margin:20px; font-weight:bold"> Study Debriefing </p>\
+            <p style="font-size:16px; color:black; margin:20px;">Judgments of force are pervasive in legal, philosophical, and everyday thinking. By analyzing responses from the survey you just completed, we are examining the complex ways in which judgments of force may interface with moral attributions - equally prevalent in legal, philosophical, and everyday thinking. </p> \
+            <p style="font-size:16px; color:black; margin:20px;font-weight: bold"> How is this being tested? </p>\
+            <p style="font-size:16px; color:black; margin:20px"> You were presented with information about whether a person was forced to do an unspecified action and then asked to predict what that person did from a set of potential actions. By varying the initial condition (whether or not said person was forced), we can study the effect judgments of force may have on action selection. </p>\
+            <p style="font-size:16px; color:black; margin:20px;font-weight: bold"> Main questions and hypotheses: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> The fundamental goal of this research is to determine whether judgments of force constrain moral appraisals. In this specific case, the question was whether or not moral judgments would influence candidate action selection. We hypothesized that people would, on average, select morally worse actions in cases where they were told that the captain was forced than in those cases where the captain was not. </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> Why is this important to study? </p>\
+            <p style="font-size:16px; color:black; margin:20px"> Understanding the relationship between judgments of force and moral appraisals has massive consequences for several domains, including the legal realm. Suppose a jury is deciding whether a defendant is guilty of a crime - the details of which are inaccessible to them (an all too common occurrence) - but they know whether or not the defendant was forced to commit the crime. Here, if judgments of force incorrectly influence moral appraisals (of the defendant’s actions), the consequences would be disastrous. </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> How to learn more: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> If you are interested in learning more, you may want to consult the following article:\
+            Liane Young and Jonathan Phillips, "The Paradox of Moral Focus." </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> How to contact the researcher: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> If you have questions or concerns about your participation or payment or want to request a summary of research findings, please contact the Primary Investigator: Dr. Jonathan Phillips, </p> <a href=mailto:Jonathan.S.Phillips@dartmouth.edu>Jonathan.S.Phillips@dartmouth.edu.</a>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> Whom to contact about your rights in this research: </p>\
+            <p style="font-size:16px; color:black; margin:20px"> If you have questions, concerns, complaints, or suggestions about the present research, you may call the Office of the Committee for the Protection of Human Subjects at Dartmouth College (603) 646-6482 during normal business hours. </p>\
+            <p style="font-size:16px; color:black; margin:20px; font-weight: bold"> Thank you for your participation! </p>'
+            , 
+            choices: ['Continue'],
+        }
+        
+        
+        /* Run trials */
+        trials.push(consent);
+        trials.push(participant_info);
+        trials.push(instructions);
+        vignette_pusher();
+        trials.push(bai);
+        trials.push(bdi);
+        trials.push(panas);
+        trials.push(openness_trial);
+        trials.push(debrief);
+
+        jsPsych.run(trials);
+    </script>
+    </body>
+</html>

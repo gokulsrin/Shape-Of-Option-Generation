@@ -1,0 +1,99 @@
+,id,handedness,nationality,residence,language,gender,education,age
+0,72,Right,American,US,English,Male,Some college,28
+1,48,right,white,us,english,female,college,40
+2,28,right,American,United States,English,female,Masters,65
+3,6,right,usa,usa,english,female,high school graduate,57
+4,2,left,American,USA,English,female,Some college,23
+5,84,right,American,United States,English,Female,Bachelor of arts,73
+6,32,right,white,USA,English,female,university degree,32
+7,21,right,US,US,English,female,Bachelor,49
+8,100,Right,American,United States,English,Male,High School Graduate,34
+9,11,Right ,American ,United States ,English ,Female ,Bachelors degree,29
+10,68,Right,United States,United States,English,Male,Masters,48
+11,79,Right,American,United states of America,English,Female,Associates Degree,20
+12,9,left,American,United States,English,female,university degree,50
+13,76,Right,American,United States of America,English,Male,College or university degree,26
+14,70,right,American,United States,English,Female,some college,48
+15,1,right,American,US,English,female,High school diploma,57
+16,77,right,USA,USA,English,female ,some post grad,35
+17,0,Right,American,United States,English,Female,Bachelors degree,54
+18,43,Left,White,Usa,English,Male,High school,33
+19,92,right,USA,USA,English,female,B.A.,65
+20,83,right,african american,United States,english,female,some college ,30
+21,18,Right,American,United States,English,Male,College Degree,40
+22,80,Right,Shite,USA,English,Female,High School,32
+23,4,Right,American,United States,English,Female,Some college ,29
+24,91,right,american,USA,english,male,MBA,68
+25,93,right,American,United States,English,Female,University degree,53
+26,39,right,american,USA,english,female,associates degree,63
+27,57,Right,USA,USA,English,Male,University degree,32
+28,7,right,american,USA,english,male,some college,19
+29,101,right,American,America,english,Male,HS Grad,51
+30,25,right,American,United States,English,female,some college,43
+31,8,LEFT,american,USA,english,female,university degree,23
+32,15,rights,United States of America,United States,English,female,some college,38
+33,50,Left,American,USA,English,Female,High School,54
+34,90,right,white,USA,English,Female ,high school,37
+35,45,Right,USA,USA,Korean,Female,Masters,48
+36,97,right,American,United States,English,female,Masters degree,54
+37,46,right,American,USA,english,male,BS,57
+38,104,right,american,usa,english,other,university degree,38
+39,3,right,American ,United States ,English,female ,Masters ,49
+40,52,right,American,United States,English,cis woman,College degree,34
+41,14,right,American,United States,English,male,High School graduate,34
+42,56,Right,United States,United States,English,Male,"Some college, no degree",62
+43,40,Right,USA,USA,English,Female,Associates,43
+44,49,right,american,usa,english,female,high school,39
+45,29,Left,United States,United States,English,Other,College Degree,47
+46,86,Right ,United States ,United States,En,Female,High school,60
+47,102,right,american,usa,english,female,masters,44
+48,69,Right,USA,USA,English,Male,PhD,39
+49,35,Right,American,United States,English,Transgender Male,Bachelors Degree,26
+50,67,right,american,USA,english,female,masters,39
+51,5,right,american,united states,english,female,masters,35
+52,51,right,USA,USA,english,Male,Some College,36
+53,98,left,american,United States,english,female,Some college,42
+54,38,right,american,usa,english,female,masters,72
+55,33,left,white,usa,english,male,some college,67
+56,63,right,american,usa,english,female,uni degree,38
+57,41,Right,American,United States,English,Female,Bachelors Degree,60
+58,37,Right,American,USA,English,male,College degree,56
+59,95,Right,American,United States,English,Male,Masters,34
+60,85,Right,American,USA,English,Male,High school,36
+61,47,right,American,United States,English,Female,Bachelor Degree,70
+62,65,left,American,U.S.,English,female,vocational degree and some college,41
+63,53,Right,American ,USA,English,Female,College Degree,28
+64,87,Left,USA,USA,English,Male,Bachelors Degree,39
+65,82,right,american,United States,english,male,high school,25
+66,78,right,american,usa,english,female,bachelors,40
+67,58,left,usa,usa,english,male,mfa,81
+68,36,Right,American,United States,English,Female,High School,21
+69,20,Right,American,USA,English,Female,H.S ,19
+70,23,right,American,USA,English,female,some college,60
+71,64,right,US,US,english,male,College degree,49
+72,30,Right,US,US,English,male,Masters,49
+73,31,right,USA,USA,English,Female,College degree,69
+74,22,Right,Asian American,United States,English,Nonbinary,Some College,28
+75,61,Right,United States of America,United States of America,English,Female,College or university degree,34
+76,34,RIGHT,AMERICAN,United States,ENGLISH,FEMALE,High school,54
+77,26,Right,USA,USA,English,Female,Associates,59
+78,19,right,american,USA,english,female,university degree,58
+79,99,right,USA American,USA,English,Female,College Graduate,44
+80,59,Right,USA,USA,English,Female,High school graduate,69
+81,74,left,American,USA,English,male,BA,57
+82,12,Right,American,America,English,Female,Bachelors Degree,22
+83,71,right,american,usa,english,male,bachelor,35
+84,75,right,American,USA,English,Female,College degree,29
+85,60,Right,American,USA,English,Female,Masters,70
+86,10,Right,USA,United States,English,Male,Some college,61
+87,81,Right,American,USA,English,Female,Some college or university,33
+88,16,Right,American,USA,English,Female,High school graduate,33
+89,24,Right,American,USA,English,Female,some college,38
+90,13,Right,Asian American,USA,Korean,Female,Associate Degree,41
+91,96,Right,American,USA,English,female,BS,37
+92,42,Right,American,United States,English,Male,Some college or university,39
+93,94,Right,American,United States of America,English,male,Masters,84
+94,73,Right,US,US,English,Female,Masters,45
+95,89,right,american,usa,english,female,college degree,29
+96,62,Right,American,United States of America,English,Male,Some college,25
+97,44,Right,american,united estates,english,Male,Graduate degree,33

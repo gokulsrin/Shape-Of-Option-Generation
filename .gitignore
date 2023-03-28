@@ -1,1 +1,9 @@
-Model/
+Analysis/Model
+Analysis/Previous_Code
+Data/Study1/deidentification.ipynb
+Data/Study2/deidentification.ipynb
+Data/Study3/deidentification.ipynb
+Data/Study4/deidentification.ipynb
+Data/Study5/deidentification.ipynb
+Analysis/Study_1/cardiffnlp
+Analysis/Study_2/cardiffnlp

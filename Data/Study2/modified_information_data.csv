@@ -1,0 +1,171 @@
+,id,age,handedness,language,nationality,residence,gender,education,bai,bdi,panas_pos,panas_neg,openness
+0,106,33,right,English,American,America,female,masters,18,16,16,0,38
+1,160,37,Right,English,American,USA,Female,BA,3,0,37,0,32
+2,51,35,Right,English,American,United States of America,Female,University degree,16,9,17,0,28
+3,138,48,left,english,american,usa,female,Associates Degree,17,0,34,0,33
+4,140,32,Right,English,American,United States,Female,High school,6,0,18,0,31
+5,113,36,Right,English,USA,USA,Female,Bachelors degree,33,51,17,0,35
+6,43,55,Right,English,USA,USA,Male,Some college,8,15,22,0,36
+7,156,40,Right,English,American,United States of America,Male,Some college,11,15,18,0,33
+8,48,51,right,english,american,usa,female,some college,0,0,18,0,24
+9,36,42,Right,English,American,USA,Male,PhD,1,3,22,0,32
+10,80,37,Right,English,White,United States,Female,College Degree,11,25,15,0,32
+11,84,36,Right,English,American,United States,female,Associates,11,10,22,0,31
+12,169,58,Right,English,American,Usa,Female,Associate degree,14,25,16,0,30
+13,21,39,right,english,american,United States,male,some college,10,42,11,0,28
+14,167,20,right,english,american,usa,female,some college or university,2,13,27,0,37
+15,76,30,right,spanish,american,usa,male,some college,0,0,45,0,39
+16,172,40,Right,English,USA,USA,Male,Masters,7,3,32,0,35
+17,135,38,right,english,american,US,female,graduate degree,21,27,20,0,23
+18,124,41,RIght,English,American,United States,Female,College degree,36,38,25,0,30
+19,57,41,Right,English,USA,USA,Female,Graduate Degree,2,6,29,0,33
+20,79,23,left,english,american,USA,male,associates degree,28,21,17,0,29
+21,159,57,right,English,USA,USA,Male,Some college,1,7,24,0,36
+22,65,24,right,english,american,usa,female,college,5,3,41,0,35
+23,161,30,right,english,usa,usa,female,university degree,13,8,27,0,27
+24,45,69,Right,English,USA,USA,Female,College Degree,0,0,34,0,34
+25,52,26,Right,Chinese,United States,United States,Female,Masters,24,31,15,0,23
+26,26,35,right,english,American,United sates,female,college,0,0,35,0,32
+27,163,48,Right,English,American,USA,Female,Masters,6,21,32,0,31
+28,100,22,right,English,American,USA,female,Masters,11,23,22,0,33
+29,37,44,left,english,USA,USA,female,masters,1,10,23,0,31
+30,145,20,Right,English,American,United States,Female,Some college,22,25,14,0,30
+31,110,45,right,english,American,United States,female,some college,1,0,45,0,33
+32,63,30,right,english,american,united states ,female ,college graduate ,0,0,41,0,33
+33,136,46,right,English,US,US,female,masters,12,8,37,0,35
+34,127,34,Right,English,American,America,Female,Some college,13,7,19,0,36
+35,117,39,Ambidextrous,English,American,USA,Male,Undergrad Degree,7,1,30,0,32
+36,42,46,right,eng;ish,usa,usa,female,high school graduate,3,14,20,0,29
+37,0,30,left,english,american,united states,female,associate,1,0,25,0,32
+38,150,42,left,english,american,unite states,male,undergraduate degree,4,4,37,0,35
+39,107,48,right,English,American,United States,Female,university degree,23,53,17,0,27
+40,137,45,Rigjt,English,USA,USA,Male,MBA,7,5,24,0,38
+41,4,52,Right,English,American,USA,Male,BS,2,5,15,0,29
+42,30,32,right,english,american,USA,female,some college,23,45,20,0,34
+43,1,31,Right,English,American,United States,Female,Some college,14,11,19,0,33
+44,119,20,Right,English,American,United States of America,Female,Some college,24,6,31,0,35
+45,99,40,Right,English,United States,United States,Female,Some College,22,9,24,0,33
+46,38,36,right,english,american,USA,female,college,5,8,19,0,31
+47,12,70,right,English,American,United States,Female,"some college, no degree",2,0,26,0,33
+48,81,34,right,English,American,America,female,university degree,0,0,28,0,34
+49,44,51,right,english,american,usa,female,college,1,18,19,0,31
+50,132,68,Right,English,US American Non Hispanic,United States,Female,Some college,1,2,41,0,36
+51,11,31,Left,English,American,USA,Female,PhD,6,4,18,0,32
+52,130,30,right,english,american,united states,female,Some college,0,4,39,0,28
+53,151,55,Right,English,American,United States,Male,Masters,0,0,37,0,34
+54,64,46,Right,English,USA,USA,Male,College or university degree,9,17,17,0,34
+55,73,41,right,english,USA,USA,Female,Graduate degree,3,8,33,0,35
+56,53,36,left,english,usa,usa,male,college degree,8,2,32,0,37
+57,177,33,Right,English,English,USA,Male,Masters,0,4,24,0,28
+58,105,23,right,English,American,USA,Female,Some College,29,24,35,0,36
+59,126,52,left,English,American,USA,Female,Masters,15,14,22,0,36
+60,94,34,right,English,american,United States,female,bachelors degree,16,11,20,0,27
+61,173,35,Left,English,American,USA,Female,College degree,0,0,38,0,34
+62,146,41,Right,English,American,United States,Male,College or university degree,2,1,24,0,33
+63,133,57,right,English,American,USA,female,some college,20,18,30,0,37
+64,5,30,right,english,american,united states,female,college degree,9,7,12,0,36
+65,122,32,Right,English,America,United States,Male,JD,2,3,15,0,33
+66,67,34,Right,English,US American,USA,Male,University Degree,4,5,31,0,33
+67,60,21,Right,English,Mexican,USA,Female,Senior in college,11,5,18,0,27
+68,56,26,Right,English,American,USA,Male,Masters,6,7,21,0,31
+69,58,46,Right,English,American,United States,Female,Some university,0,0,42,0,32
+70,72,60,right,english,white,United States,male,BS college,21,21,11,0,30
+71,143,42,right,english,united states,united states,female,2 year associates degree,3,8,24,0,31
+72,152,47,right,English,American,United States,female,bachelors degree,2,2,31,0,34
+73,39,36,Right,English,usa,usa,male,some college,0,0,10,0,33
+74,14,50,right,english,american,United States,female,college degree,22,5,38,0,31
+75,103,56,right,english,American,United States,female,some college,16,24,16,0,35
+76,46,61,Right,English,American,USA,Female,College Degree,7,0,48,0,33
+77,168,32,right,Englis,American,United States,female,College,21,29,16,0,29
+78,25,56,Right,English,USA,USA,Male,University Degree,1,5,23,0,27
+79,68,26,Right,English,American,United States,Male,Associate degree,1,4,19,0,32
+80,2,54,Right,English,white,USA,Female,High school,0,8,22,0,32
+81,16,54,right,English,american,US,femlale,college,2,4,24,0,35
+82,15,45,right,english,american,USA,Femae,Some college,1,1,23,0,33
+83,162,35,Right,english,American,United States,Female,High School,29,36,15,0,34
+84,6,23,Right,English,United States citizen,USA,Male,University degree,11,14,17,0,35
+85,109,57,right,english,African American,United States,FEMALE,College Graduate,1,6,37,0,32
+86,55,43,Right,English,American,United States,Male,College,9,0,41,0,35
+87,155,60,Left,English,American,United States,Male,College Degree,0,5,30,0,33
+88,69,58,right,English,American,United States,Female,Some college,21,16,26,0,32
+89,8,52,RIGHT,ENGLISH,CAUCASIAN,United States,FEMALE,ASSOCIATES DEGREE,6,11,38,0,34
+90,102,52,right,English,American,United States,Female,Associate of Art,0,0,45,0,31
+91,114,33,right,english,american,united states,female,university degree,2,0,18,0,28
+92,165,31,right,english,white,United States,female,ged,7,0,50,0,33
+93,70,46,right,English,American,USA,Female,College,3,9,20,0,28
+94,131,50,right,English,USA,United States,Male,Bachelors,3,10,24,0,33
+95,59,34,Right,Englist,USA,USA,male,university degree,1,0,27,0,34
+96,104,49,right,english,american,united states,female,university degree,0,0,35,0,34
+97,3,43,right,english,american,usa,female,hgihg school graduate,28,15,26,0,32
+98,61,37,Right,English,Asian-American,USA,Female,Masters,13,18,18,0,29
+99,144,39,right,english,American,United States,male,some college,1,1,28,0,33
+100,95,56,Right,English,USA,United States,Male,Associates,0,0,34,0,33
+101,111,20,Right,English,American,United States,Male,Some college or university,10,15,30,0,33
+102,77,58,Right,English,American,United States,Female,College degree,7,5,28,0,30
+103,49,65,right,English,USA,USA,Female,Some college,0,0,28,0,35
+104,88,55,right,english,american,USA,FEMALE,ASSOCIATES DEGREE,4,7,32,0,31
+105,112,30,Left,English,American,United States,Male,College Degree,3,13,12,0,32
+106,89,39,right,english,American,United States,female,high school,9,5,22,0,34
+107,31,41,Right,English,American,USA,Female,Masters,14,16,20,0,27
+108,115,51,right,english,USA,USA,male,Bachelors,14,3,23,0,34
+109,101,44,right,english,american,united states of america,female,4 year degree,0,0,28,0,35
+110,149,27,right,english,american,usa,female,some college,0,0,37,0,30
+111,96,29,Right,Spanish,American,United States,Female,Some college or university,24,31,11,0,19
+112,71,29,right,english,american,united states,female,university degree,2,2,38,0,36
+113,87,65,right,English,American,USA,male,masters,0,0,38,0,31
+114,153,32,right,English,American,America,female, College or university degree,11,3,34,0,34
+115,147,59,Right,English,American,USA,Male,Some college,0,0,27,0,33
+116,120,65,right,english,american,United States,female,Some graduate school,7,9,37,0,35
+117,90,26,right,english,chinese,united states,female,graduate degree,18,31,22,0,30
+118,7,27,left,English,American,United States,male,college degree,0,0,36,0,34
+119,40,44,Right,English,Caucasian/White,United States,Male,Some college,0,0,35,0,33
+120,157,41,right,english,american,usa,female,some college,5,8,27,0,28
+121,9,72,right,English,Norwegian,United States,female,AA degree,5,14,21,0,34
+122,86,64,right,English,Italian,United States,female,university degree,9,4,31,0,34
+123,54,63,right,English,USA,USA,female,tech school graduate,27,26,17,0,27
+124,28,34,Left,English,United States,United States,Female,Some College,23,28,19,0,30
+125,175,38,Right,English,United States ,USA,Female,Univeristy Degree ,8,6,28,0,31
+126,93,23,right,English,United States,United States,female,university degree,10,36,18,0,23
+127,13,65,Right,English,American,United States,Male,Some college,16,22,22,0,29
+128,82,49,right,English,white,United States,Female,BA,0,0,34,0,35
+129,18,21,Right,English,American,United States,Female,Some college,2,9,18,0,32
+130,98,29,Right,English,American,United States,Female,Professional Degree,24,26,20,0,29
+131,176,48,Right,English,African American,United States,Female,Some College,0,4,37,0,30
+132,166,69,Right,English,American,United States,Female,"Some college, no degree",25,6,33,0,32
+133,24,29,Right,English,American (U.S.),United States,Female,Masters,11,26,15,0,25
+134,32,43,Right,English,American,United States,Male,Bachelor degree,8,1,31,0,30
+135,91,43,Right,English,US,US,Female,AS,8,20,16,0,25
+136,20,60,left,engish,white,United States,female,High school,7,17,27,0,21
+137,170,28,Right,English,USA,United States,Non-Binary,Some college,44,47,14,0,37
+138,108,46,Left,English,USA,USA,Female,Masters,4,11,32,0,32
+139,62,42,right,english,American,USA,female,college degree,4,0,29,0,32
+140,17,22,Right,English,American,United States,Male,Some college,27,55,11,0,35
+141,97,67,Right ,English ,American ,United States ,Female ,Associates ,23,16,36,0,37
+142,47,34,Right,English,United States,United States,Male,College certificate,26,13,28,0,33
+143,171,20,Right,English,American,United States,Female,College Degree,40,22,20,0,34
+144,10,59,left,english,american,United States,Male,associate,3,1,23,0,27
+145,74,51,left,English,American,USA,Female,BS Degree,0,0,33,0,31
+146,164,66,Right,English,American citizen,USA,male,JD (juris doctor),0,2,29,0,35
+147,125,51,Right,English,American,USA,Male,College degree,6,6,41,0,30
+148,66,51,right,English,American,USA,female,BS,16,27,26,0,27
+149,116,59,right,english,USA,USA,female,Masters,6,8,34,0,34
+150,118,49,Right,English,US,US,Male,PhD,6,0,40,0,33
+151,75,68,Right,English,American,United States,Female,Graduate degree,5,4,30,0,36
+152,174,42,right,English,american,USA,female,university degree,4,8,24,0,32
+153,123,52,right,english,american,usa,male,college degree,12,22,33,0,37
+154,141,30,Left,English,United States,United States,Other,Associates Degree,25,32,23,0,39
+155,23,48,right,english,american,United States,Male,Masters,0,0,46,0,37
+156,35,39,Right,English,American,United States,Male,College degree,1,0,38,0,31
+157,142,39,Right,English,German and Slovak,United States,Female,Masters Degree,31,17,29,0,37
+158,19,23,Right,English,American,United States,Male,Some College,9,10,32,0,32
+159,33,33,right,english,american,United states,male,masters,1,12,12,0,37
+160,34,74,Right,English,United States Citizen,United States,Male,Advanced AutoCad/Inventor Certification,1,2,39,0,32
+161,158,37,Left,English,American,United States of America,Male,Some college,9,24,12,0,33
+162,85,49,Right,English,American,United States of America,Male,College Degree in Accounting,9,8,30,0,33
+163,121,60,right,english,usa,United States,male,college,7,30,21,0,35
+164,129,33,Right,English,United States,United States,Male,university degree,4,2,35,0,32
+165,50,27,Ambidextrous,English,American,United States of America,Male,Some college,5,16,21,0,27
+166,29,52,right,English,American,United States,female,Bachelor,1,0,36,0,33
+167,92,36,right,english,USA,USA,Male,University Degree,1,0,34,0,34
+168,27,61,Right,English,American,United States,Male,Some College,6,8,31,0,34
+169,83,43,Right,American English,American,United States,Female,Associates Degree,0,1,33,0,36
