@@ -14,7 +14,7 @@ There has been a small but now growing interest in studying decision making in r
 The [Analysis](Analysis/) folder contains all of the scripts for data analysis performed on data collected from studies. Each subfolder houses the analysis scripts for each study. For example, [this](/Analysis/Study_1/)folder contains all of the data analysis for Study 1. The [Model](Analysis/Model/) folder stores the custom sentiment model used during sentiment analysis. 
 
 ### Data 
-The [Data](Data/) folder contains the data collected from each study, alongside supplementary files used in data analysis. Each subfolder contains the data from each study. For example, [this](Data/Study1/) folder contains the data for Study 1. 
+The [Data](Data/) folder contains the data collected from each study, alongside supplementary files used in data analysis. Each subfolder contains the data from each study. For example, [this](Data/Study1/) folder contains the data for Study 1. It is also worth mentioning that though vignettes are ordered in the corresponding .txt files, they were administered to participants in random order. 
 
 ### Studies 
 The [Studies](Studies/) folder contains the code used for the studies 2 and 5. Studies 1, 3, and 4 were either 1) produced on a third-party survey platform (e.g., Qualtrics), or 2) lack accessible source code. 
