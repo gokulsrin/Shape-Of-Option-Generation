@@ -22,15 +22,4 @@ The [Studies](Studies/) folder contains the code used for the studies 2 and 5. S
 ### Anaconda Environment 
 The env.yml file contains the list of dependices used for data analysis. 
 
-## Experiment List and Description:
-### Total Semantic Exploration vs Average Sentiment
-### Total Semantic Exploration vs Generation Number
-### Semantic Dissimilarity vs Generation Number
-### Subjective Goodness vs Generation Number
-### Generation Sentiment vs Generation Number
-### Generation Concreteness vs Generation Number
-### Concreteness vs Semantic Relatedness
-### Semantic Exploration vs Average Concreteness
-### Generation Concreteness vs Subjective Score
-### Generation Concreteness vs Generation Sentiment
 
